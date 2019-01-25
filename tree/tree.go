@@ -46,7 +46,7 @@ func isHiddenDirectoryOrFile(f os.FileInfo) bool {
 	return strings.HasPrefix(f.Name(), ".")
 }
 
-// OutputTree output formated tree.
+// Tree output formated tree.
 func Tree(w Writer, arg string) {
 	w.Write(".")
 	tree(w, arg, "", 0)

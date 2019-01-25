@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/po3rin/gotree/cmd"
+	"github.com/po3rin/gotree/tree"
 )
 
 func main() {

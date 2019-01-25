@@ -4,19 +4,15 @@
 
 tree command to display go package document. This helps to understand the role of the package. hidden directory and File is not yet supported.
 
-## Flags
+## Install
 
 ```
-Usage:
-  gotree [flags]
-
-Flags:
-      --color     color output (default true)
-  -h, --help      help for gotree
-      --version   version for gotree
+$ go get -u github.com/po3rin/gotree
 ```
 
-## Quick Start
+## Usage
+
+Specify the path as an argument.
 
 ```
 $ gotree example
@@ -37,6 +33,18 @@ $ gotree example
 │       └── b.go
 └── example3
     └── a.txt
+```
+
+## Flags
+
+```
+Usage:
+  gotree [flags]
+
+Flags:
+      --color     color output (default true)
+  -h, --help      help for gotree
+      --version   version for gotree
 ```
 
 ## Test

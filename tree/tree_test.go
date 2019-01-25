@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/po3rin/gotree/cmd"
+	"github.com/po3rin/gotree/tree"
 )
 
 var b bytes.Buffer

@@ -10,4 +10,4 @@ builds:
 release:
   github:
     owner: po3rin
-    name: po3rin
+    name: gotree

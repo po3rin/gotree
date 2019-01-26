@@ -1,6 +1,6 @@
 builds:
   - main: main.go
-    binary: cmd/gotree/gotree
+    binary: cmd/gotree/main.go
     goos:
       - windows
       - darwin

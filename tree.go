@@ -1,16 +1,29 @@
-// Package cmd traverse dirctory and file. In addition it analyzes the document
-package cmd
+// Package gotree traverse dirctory and file. In addition it analyzes the document
+package gotree
 
 import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"os"
-	"strings"
 )
 
-// Tree traverse directory and output formated tree.
-func tree(w Writer, dir, baseBranch string, depth int) {
+var (
+	branch    string
+	addBranch string
+)
+
+const (
+	tBranch = "├── "
+	iBranch = "│   "
+	lBranch = "└── "
+	nBranch = "    "
+)
+
+func constructTree(w Writer, dir, baseBranch string, depth int) {
+	if depth >= depthLimit && depthLimit != 0 {
+		return
+	}
+
 	files, err := ioutil.ReadDir(dir)
 	if err != nil {
 		log.Fatal(err)
@@ -35,19 +48,15 @@ func tree(w Writer, dir, baseBranch string, depth int) {
 			} else {
 				addBranch = iBranch
 			}
-			tree(w, dir+"/"+file.Name(), baseBranch+addBranch, depth+1)
-		} else {
+			constructTree(w, dir+"/"+file.Name(), baseBranch+addBranch, depth+1)
+		} else if !directoryOnly {
 			w.Write(baseBranch + branch + file.Name())
 		}
 	}
 }
 
-func isHiddenDirectoryOrFile(f os.FileInfo) bool {
-	return strings.HasPrefix(f.Name(), ".")
-}
-
 // Tree output formated tree.
 func Tree(w Writer, arg string) {
 	w.Write(".")
-	tree(w, arg, "", 0)
+	constructTree(w, arg, "", 0)
 }

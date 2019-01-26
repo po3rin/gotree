@@ -6,7 +6,7 @@
 
 tree command to display go package document. This helps to understand the role of the package. hidden directory and File is not yet supported.
 
-## Install
+## Instalation
 
 ```
 $ go get -u github.com/po3rin/gotree
@@ -37,6 +37,18 @@ $ gotree example
     └── a.txt
 ```
 
+Using ```--d``` flag, display directory only.
+
+```
+gotree --d example/
+.
+├── example1 ---( Package example1 for test. )
+│   └── example11 ---( Package example11 for test. )
+├── example2
+│   └── example21 ---( Package example21 for test. )
+└── example3
+```
+
 ## Flags
 
 ```
@@ -44,7 +56,9 @@ Usage:
   gotree [flags]
 
 Flags:
-      --color     color output (default true)
+      --c         Display with color (default true)
+      --d         Display directory only
   -h, --help      help for gotree
+      --l int     Max display depth of the directory tree (default 10)
       --version   version for gotree
 ```

@@ -1,4 +1,4 @@
-package cmd
+package gotree
 
 import (
 	"fmt"
@@ -10,10 +10,9 @@ type Writer interface {
 	Write(p string)
 }
 
-// TreeWriter impliments Write for os.Stdout.
-type TreeWriter struct{}
+type writer struct{}
 
 // Write writes tree.
-func (t TreeWriter) Write(p string) {
+func (t writer) Write(p string) {
 	fmt.Fprintln(os.Stdout, p)
 }

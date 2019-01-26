@@ -1,24 +1,24 @@
-package cmd_test
+package gotree_test
 
 import (
 	"bytes"
 	"fmt"
 	"testing"
 
-	"github.com/po3rin/gotree/tree"
+	"github.com/po3rin/gotree"
 )
 
 var b bytes.Buffer
 
-type TestWriter struct{}
+type testWriter struct{}
 
-func (t TestWriter) Write(p string) {
+func (t testWriter) Write(p string) {
 	fmt.Fprintln(&b, p)
 }
 
 func TestTree(t *testing.T) {
-	w := TestWriter{}
-	cmd.Tree(w, "../example")
+	w := testWriter{}
+	gotree.Tree(w, "example")
 
 	expected := []byte(`.
 ├── example1 ---( Package example1 for test. )

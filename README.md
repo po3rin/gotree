@@ -9,7 +9,7 @@ tree command to display go package document. This helps to understand the role o
 ## Instalation
 
 ```
-$ go get -u github.com/po3rin/gotree
+$ go get -u github.com/po3rin/gotree/cmd/gotree
 ```
 
 ## Usage
